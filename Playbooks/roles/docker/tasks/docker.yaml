@@ -1,0 +1,36 @@
+---
+- name: Upload the config file
+  copy:
+    src: docker-compose.yaml
+    dest: /root/webserver/docker-compose.yaml
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Upload the config file
+  copy:
+    src: index.html
+    dest: /root/github/eindopdracht/index.html
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Upload the config file
+  copy:
+    src: connect.php
+    dest: /root/github/eindopdracht/index.html
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Upload the config file
+  copy:
+    src: bootstrap.css
+    dest: /root/github/eindopdracht/css/bootstrap.css
+    owner: root
+    group: root
+    mode: 0644
+  become: true

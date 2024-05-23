@@ -1,0 +1,3 @@
+- name: Run webserver
+  ansible.builtin.command: docker-compose -f /root/webserver/docker-compose.yaml up -d
+  become: true

@@ -1,0 +1,7 @@
+
+- name: Auto-update
+  include_tasks: auto-update.yaml
+
+- name: auto-backup
+  include_tasks: auto-backup.yaml
+

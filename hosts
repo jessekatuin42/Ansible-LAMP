@@ -1,0 +1,6 @@
+webservers:
+  hosts:
+    webserver01:
+      ansible_host: 10.10.40.8
+  vars:
+    ansible_user: solar

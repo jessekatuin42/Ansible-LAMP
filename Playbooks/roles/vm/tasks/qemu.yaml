@@ -1,0 +1,5 @@
+---
+- name: Update apt cache en zorg er voor dat de Qemu-guest-agent is geinstaleerd
+  apt:
+    name: qemu-guest-agent
+    update_cache: yes

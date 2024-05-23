@@ -1,0 +1,34 @@
+- name: Maak mapstructuur aan
+  file:
+    path: "/root/data/{{ item.name }}"
+    state: directory
+    mode: "{{ item.mode }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+  loop:
+    - { name: directie, mode: "0774", owner: "Henk_Boretty", group: "directie" }
+    - { name: beheer, mode: "0774", owner: "Henk_de_Groot", group: "beheer" }
+    - { name: ontwikkeling, mode: "0774", owner: "Ina_de_Wit", group: "ontwikkeling" }
+
+- name: Maak een backup map aan
+  file:
+    path: "/root/back-up/"
+    state: directory
+
+- name: Maak een webserver map
+  file:
+    path: "/root/webserver/"
+    state: directory
+
+- name: Maak github mapstructuur aan
+  file:
+    path: "/root/github/{{ item.name }}"
+    state: directory
+  loop:
+    - { name: eindopdracht }
+
+- name: Maak een webserver map
+  file:
+    path: "/root/github/eindopdracht/css"
+    state: directory
+

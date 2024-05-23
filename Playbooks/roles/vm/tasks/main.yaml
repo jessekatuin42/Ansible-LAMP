@@ -1,0 +1,7 @@
+
+- name: Qemu
+  include_tasks: qemu.yaml
+
+- name: Netwerk
+  include_tasks: network.yaml
+

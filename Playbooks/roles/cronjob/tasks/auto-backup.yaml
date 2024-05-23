@@ -1,0 +1,9 @@
+- name: Add cron job to update and upgrade packages
+  ansible.builtin.shell: |
+    echo "$(crontab -l)" > /tmp/crontab.tmp
+    echo '0 2 * * * rsync -avz --log-file="/root/back-up/backup_log_$(date +\%Y-\%m-\%d_\%H-\%M-\%S).txt" /root/data/ /root/back-up/' >> /tmp/crontab.tmp
+    crontab /tmp/crontab.tmp
+  register: cron_output
+
+- debug:
+    var: cron_output.stdout

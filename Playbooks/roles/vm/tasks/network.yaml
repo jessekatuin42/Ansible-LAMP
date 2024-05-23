@@ -1,0 +1,19 @@
+- name: Check /etc/network/interfaces
+  stat:
+    path: /etc/network/interfaces
+  register: network_interfaces
+
+- name: Fix /etc/network/interfaces
+  # Ubuntu en Debian probeer DHCP te doen op eth0, eth1 en eth2.
+  # Dat is stom, want:
+  #  - cloud-init regelt het netwerk in /etc/network/interfaces.d/50-cloud-init
+  #  - we doen geen DHCP
+  #  - eth1 en eth2 bestaan niet
+  replace:
+    path: /etc/network/interfaces
+    regexp: '^({{ item }})$'
+    replace: '#\1'
+  with_items:
+    - "allow-hotplug eth."
+    - "iface eth. inet dhcp"
+  when: network_interfaces.stat.exists

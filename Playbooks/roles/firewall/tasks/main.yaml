@@ -1,0 +1,15 @@
+- name: Enable UFW
+  ansible.builtin.command: ufw --force enable
+  become: true
+
+- name: Allow SSH (port 22) through UFW
+  ansible.builtin.command: ufw allow 22
+  become: true
+
+- name: Allow HTTP (port 80) through UFW
+  ansible.builtin.command: ufw allow 80
+  become: true
+
+- name: Allow HTTPS (port 443) through UFW
+  ansible.builtin.command: ufw allow 443
+  become: true
