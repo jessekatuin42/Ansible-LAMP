@@ -1,0 +1,8 @@
+---
+galaxy_info:
+  author: jesse_katuin
+  description: MySQL setup for test_database and test_user
+  license: MIT
+  min_ansible_version: 2.9
+
+dependencies: []

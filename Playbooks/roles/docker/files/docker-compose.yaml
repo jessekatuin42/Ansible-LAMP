@@ -1,15 +1,10 @@
 version: '3.8'
 services:
   apache:
-    image: httpd:latest
+    image: php:8-apache
     ports:
       - "80:80"
     volumes:
-      - /root/github/eindopdracht:/usr/local/apache2/htdocs
-
-  db:
-    image: mysql:latest
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: jesseeline42
+      - /root/github/eindopdracht:/var/www/html/
+    # volumes:
+    #   - /root/github/eindopdracht:/usr/local/apache2/htdocs

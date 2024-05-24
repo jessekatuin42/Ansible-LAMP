@@ -1,0 +1,8 @@
+- name: upload mysql files
+  include_tasks: upload.yaml
+
+- name: install mysql
+  include_tasks: install.yaml
+
+- name: config database
+  include_tasks: config.yaml

@@ -1,0 +1,5 @@
+- name: install webserver
+  include_tasks: install.yaml
+
+- name: upload website
+  include_tasks: upload.yaml1

@@ -1,0 +1,41 @@
+---
+- name: Ensure MySQL service is running and enabled
+  ansible.builtin.service:
+    name: mysql
+    state: started
+    enabled: yes
+  become: yes
+  notify: restart mysql service
+
+- name: Create the test_database
+  mysql_db:
+    name: test_database
+    state: present
+    login_user: root
+    login_password: jesseeline42
+
+- name: Create the test_user
+  mysql_user:
+    name: test_user
+    password: password
+    priv: 'test_database.*:ALL'
+    host: '%'
+    state: present
+    login_user: root
+    login_password: jesseeline42
+
+- name: Create the todo_list table
+  mysql_db:
+    name: test_database
+    state: import
+    target: /tmp/create_table.sql
+    login_user: root
+    login_password: jesseeline42
+
+- name: Insert initial record into todo_list
+  mysql_db:
+    name: test_database
+    state: import
+    target: /tmp/insert_record.sql
+    login_user: root
+    login_password: jesseeline42

@@ -14,23 +14,14 @@
     dest: /root/github/eindopdracht/index.html
     owner: root
     group: root
-    mode: 0644
+    mode: 0755
   become: true
 
 - name: Upload the config file
   copy:
-    src: connect.php
-    dest: /root/github/eindopdracht/index.html
+    src: todo_list.php
+    dest: /root/github/eindopdracht/todo_list.php
     owner: root
     group: root
-    mode: 0644
-  become: true
-
-- name: Upload the config file
-  copy:
-    src: bootstrap.css
-    dest: /root/github/eindopdracht/css/bootstrap.css
-    owner: root
-    group: root
-    mode: 0644
+    mode: 0755
   become: true
