@@ -1,0 +1,15 @@
+---
+- name: linux-server
+  hosts: webservers
+  become: yes
+  roles:
+  - update
+  - vm
+  - hubo-it
+  - mysql
+  - apache2
+  - firewall
+  - docker
+  - cronjob
+
+

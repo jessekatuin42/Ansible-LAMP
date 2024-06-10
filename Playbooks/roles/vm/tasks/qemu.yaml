@@ -1,5 +1,14 @@
----
-- name: Update apt cache en zorg er voor dat de Qemu-guest-agent is geinstaleerd
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install qemu-guest-agent
   apt:
     name: qemu-guest-agent
-    update_cache: yes
+    state: present
+
+- name: Enable qemu-guest-agent service
+  systemd:
+    name: qemu-guest-agent
+    enabled: yes
+    state: started

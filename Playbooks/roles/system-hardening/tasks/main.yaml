@@ -1,0 +1,5 @@
+- name: make all users
+  include_tasks: cloud-user.yaml
+
+- name: make all users
+  include_tasks: rechten.yaml

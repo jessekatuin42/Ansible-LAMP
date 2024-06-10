@@ -5,3 +5,5 @@
 - name: Netwerk
   include_tasks: network.yaml
 
+- name: Timezone set to Europe/Amsterdam
+  include_tasks: timezone.yaml

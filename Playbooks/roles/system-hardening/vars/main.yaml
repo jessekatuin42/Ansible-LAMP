@@ -1,0 +1,8 @@
+---
+beheer_user: beheer
+beheer_group: beheer
+beheer_dir: /beheer
+
+productie_user: productie
+productie_group: productie
+productie_dir: /data

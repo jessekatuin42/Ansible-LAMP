@@ -1,9 +1,9 @@
 - name: Install
   include_tasks: install.yaml
 
-- name: docker
-  include_tasks: docker.yaml
+# - name: docker
+#   include_tasks: docker.yaml
 
-- name: docker-run
-  include_tasks: docker-run.yaml
+# - name: docker-run
+#   include_tasks: docker-run.yaml
 

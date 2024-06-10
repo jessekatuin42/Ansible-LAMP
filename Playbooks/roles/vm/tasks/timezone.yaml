@@ -1,0 +1,4 @@
+---
+- name: Ensure the correct timezone is set
+  timezone:
+    name: "{{ timezone }}"

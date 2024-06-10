@@ -1,0 +1,60 @@
+---
+- name: Ensure beheer group exists
+  ansible.builtin.group:
+    name: "{{ beheer_group }}"
+    state: present
+
+- name: Ensure beheer user exists
+  ansible.builtin.user:
+    name: "{{ beheer_user }}"
+    group: "{{ beheer_group }}"
+    state: present
+
+- name: Ensure beheer directory exists
+  ansible.builtin.file:
+    path: "{{ beheer_dir }}"
+    state: directory
+    owner: "{{ beheer_user }}"
+    group: "{{ beheer_group }}"
+    mode: '0770'
+
+- name: Install nmap for beheer
+  ansible.builtin.package:
+    name: nmap
+    state: present
+
+- name: Ensure productie group exists
+  ansible.builtin.group:
+    name: "{{ productie_group }}"
+    state: present
+
+- name: Ensure productie user exists
+  ansible.builtin.user:
+    name: "{{ productie_user }}"
+    group: "{{ productie_group }}"
+    state: present
+
+- name: Ensure data directory exists for productie
+  ansible.builtin.file:
+    path: "{{ productie_dir }}"
+    state: directory
+    owner: "{{ productie_user }}"
+    group: "{{ productie_group }}"
+    mode: '0770'
+
+- name: Install Docker for productie
+  ansible.builtin.package:
+    name: docker
+    state: present
+
+- name: Ensure SFTP is available via FileZilla (install vsftpd)
+  ansible.builtin.package:
+    name: vsftpd
+    state: present
+  notify: restart vsftpd
+
+- name: Ensure vsftpd service is running
+  ansible.builtin.service:
+    name: vsftpd
+    state: started
+    enabled: yes

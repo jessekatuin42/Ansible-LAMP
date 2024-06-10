@@ -1,0 +1,31 @@
+---
+- name: Aanmaken van groepen
+  group:
+    name: "{{ item }}"
+  loop:
+    - beheer
+    - administratie
+    - productie
+
+- name: Aanmaken van gebruikers
+  user:
+    name: "{{ item.name }}"
+    group: "{{ item.group }}"
+    password: "{{ 'welcome01' | password_hash('sha512') }}"
+  loop:
+    - { name: Jan_Links, group: beheer }
+    - { name: John_de_Vrij, group: beheer }
+    - { name: Linda_de_Lange, group: administratie }
+    - { name: Mark_de_Vos, group: administratie }
+    - { name: Lammert_Rooseveld, group: productie }
+    - { name: Lucinda_Franken, group: productie }
+
+- name: Gebruikers uitnodigen om het wachtwoord te wijzigen bij eerste aanmelding
+  shell: chage -d 0 {{ item.name }}
+  loop:
+    - { name: Jan_Links }
+    - { name: John_de_Vrij }
+    - { name: Linda_de_Lange }
+    - { name: Mark_de_Vos }
+    - { name: Lammert_Rooseveld }
+    - { name: Lucinda_Franken }

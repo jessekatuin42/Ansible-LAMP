@@ -3,14 +3,16 @@
   hosts: webservers
   become: yes
   roles:
-    - update
-    - vm
-    - users
-    - cronjob
-    - dirs
-    - firewall
-    #- docker
-    - mysql
-    - apache2
+    # - update
+    # - vm
+    # - users
+    # - cronjob
+    # - dirs
+    # - firewall
+    # - docker
+    # - mysql
+    # - apache2
+    # - system-hardening
+    - hubo-it
 
 

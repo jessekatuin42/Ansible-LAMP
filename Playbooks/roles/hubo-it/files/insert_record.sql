@@ -1,0 +1,1 @@
+INSERT INTO todo_list (content) VALUES ("Mijn eerste belangrijke item");
