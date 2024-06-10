@@ -2,10 +2,10 @@ webservers:
   hosts:
     webserver01:
       ansible_host: 10.10.40.11
-    webserver02:
-      ansible_host: 10.10.40.12
-    webserver03:
-      ansible_host: 10.10.40.13
+    # webserver02:
+    #   ansible_host: 10.10.40.12
+    # webserver03:
+    #   ansible_host: 10.10.40.13
 
   vars:
     ansible_user: solar

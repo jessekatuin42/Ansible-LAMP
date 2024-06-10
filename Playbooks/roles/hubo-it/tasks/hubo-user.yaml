@@ -37,3 +37,22 @@
     - { name: Karel_Grotenbier }
     - { name: Agatha_de_Boer }
     - { name: Mike_de_Boer }
+
+- name: Create home directories for users
+  file:
+    path: "/home/{{ item.name }}"
+    state: directory
+    owner: "{{ item.name }}"
+    group: "{{ item.group }}"
+    mode: '0750'
+  loop:
+    - { name: Henk_Boretty, group: directie }
+    - { name: Jan_Huisman, group: directie }
+    - { name: Johanna_de_Vries, group: directie }
+    - { name: Henk_de_Groot, group: beheer }
+    - { name: Jannes_de_Jong, group: beheer }
+    - { name: Linda_de_Jonge, group: beheer }
+    - { name: Ina_de_Wit, group: ontwikkeling }
+    - { name: Karel_Grotenbier, group: ontwikkeling }
+    - { name: Agatha_de_Boer, group: ontwikkeling }
+    - { name: Mike_de_Boer, group: ontwikkeling }

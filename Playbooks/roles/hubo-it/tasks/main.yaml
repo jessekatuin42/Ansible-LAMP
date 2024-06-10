@@ -1,8 +1,8 @@
-# - name: Maakt alle gebruikers aan van hubo-it
-#   include_tasks: hubo-user.yaml
+- name: Maakt alle gebruikers aan van hubo-it
+  include_tasks: hubo-user.yaml
 
-# - name: Maakt alle nodige directiets aan
-#   include_tasks: dir.yaml
+- name: Maakt alle nodige directiets aan
+  include_tasks: dir.yaml
 
 - name: Auto-update
   include_tasks: auto-update.yaml
