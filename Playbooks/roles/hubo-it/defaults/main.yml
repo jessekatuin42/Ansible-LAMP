@@ -1,0 +1,8 @@
+fail2ban_service_name: fail2ban
+fail2ban_config_file: /etc/fail2ban/jail.local
+fail2ban_loglevel: INFO
+fail2ban_logtarget: /var/log/fail2ban.log
+fail2ban_socket: /var/run/fail2ban/fail2ban.sock
+fail2ban_bantime: 600
+fail2ban_findtime: 600
+fail2ban_maxretry: 5

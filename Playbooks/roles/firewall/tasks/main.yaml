@@ -10,6 +10,6 @@
   ansible.builtin.command: ufw allow 80
   become: true
 
-- name: Allow HTTPS (port 443) through UFW
-  ansible.builtin.command: ufw allow 443
-  become: true
+# - name: Allow HTTPS (port 443) through UFW
+#   ansible.builtin.command: ufw allow 443
+#   become: true

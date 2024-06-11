@@ -12,6 +12,8 @@
     name: "{{ item.name }}"
     group: "{{ item.group }}"
     password: "{{ 'welcome01' | password_hash('sha512') }}"
+    shell: /bin/bash
+    create_home: yes
   loop:
     - { name: Henk_Boretty, group: directie }
     - { name: Jan_Huisman, group: directie }

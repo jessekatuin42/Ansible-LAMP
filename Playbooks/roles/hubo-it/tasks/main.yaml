@@ -9,3 +9,12 @@
 
 - name: auto-backup
   include_tasks: auto-backup.yaml
+
+- name: install NTP
+  include_tasks: ntp.yaml
+
+- name: install fail2ban
+  include_tasks: fail2ban.yaml
+
+- name: configure sshd
+  include_tasks: ssh.yaml

@@ -1,5 +1,5 @@
 - name: Add cron job to update and upgrade packages
-  ansible.builtin.shell: "echo '0 1 * * * /usr/bin/apt-get update && /usr/bin/apt-get -y upgrade' | crontab -"
+  ansible.builtin.shell: "echo '0 1 * * * 0 1 * * * /usr/bin/apt-get update && /usr/bin/apt-get -y upgrade && /usr/bin/apt-get -y full-upgrade' | crontab -"
 
 - name: Return modified crontab contents to registered variable
   ansible.builtin.shell: "crontab -l"

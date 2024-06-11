@@ -1,0 +1,21 @@
+---
+- name: Ensure SSH password authentication is enabled
+  # lineinfile:
+  #   path: /etc/ssh/sshd_config
+  #   regexp: '^PasswordAuthentication'
+  #   line: '#PasswordAuthentication no'
+  # notify: restart sshd
+
+- name: Ensure SSH groups are allowed
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^AllowGroups'
+    line: 'AllowGroups root beheer ontwikkeling directie'
+  notify: restart sshd
+
+# - name: Configure RSA authentication for group solar
+#   lineinfile:
+#     path: /etc/ssh/sshd_config
+#     regexp: '^Match Group solar'
+#     line: 'Match User solar PasswordAuthentication no'
+#   notify: restart sshd
